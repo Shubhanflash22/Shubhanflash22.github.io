@@ -1,64 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubhan | AI & Smart Grids Researcher</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+<html class="dark" lang="en">
 
-    <nav>
-        <div class="logo">Shubhan Mital</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Engineering</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shubhan Mital | AI & Smart Grids Researcher</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b82f6",     /* Blue */
+                        accent: "#10b981",      /* Green */
+                        "background-dark": "#020617",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                },
+            },
+        };
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        }
+        .grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+        .glow-effect:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+            border-color: #3b82f6;
+        }
+        /* Typing Animation */
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #3b82f6; } }
+        .typewriter-text {
+            overflow: hidden;
+            border-right: 2px solid #3b82f6;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300">
+    
+    <div class="fixed inset-0 pointer-events-none grid-pattern opacity-50 z-0"></div>
+
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-background-dark/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-xl font-bold tracking-tighter text-primary">Shubhan Mital</div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a class="hover:text-primary transition-colors" href="#expertise">Expertise</a>
+                <a class="hover:text-primary transition-colors" href="#projects">Projects</a>
+                <a class="hover:text-primary transition-colors" href="#education">Education</a>
+                <div class="flex items-center gap-4">
+                    <a class="hover:text-primary" href="https://github.com/Shubhanflash22" target="_blank">
+                        <span class="material-icons-round text-xl">code</span>
+                    </a>
+                    <a class="hover:text-primary" href="mailto:your-email@ucsd.edu">
+                        <span class="material-icons-round text-xl">alternate_email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm Shubhan</h1>
-            <p>AI Engineer | Smart Grids Researcher</p>
-            <div class="social-links">
-                <a href="https://github.com/Shubhanflash22" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a> <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i></a>
+    <main class="relative z-10">
+        <section class="max-w-7xl mx-auto px-6 pt-24 pb-32">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6 border border-primary/20">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    Open to Research & Engineering Roles
+                </div>
+                
+                <div class="mb-4">
+                    <span class="font-mono text-lg md:text-xl text-slate-500 dark:text-slate-400 typewriter-text inline-block">
+                        <span class="text-purple-500">const</span> researcher = <span class="text-primary">new</span> <span class="text-accent">SmartGridAI</span>();
+                    </span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">
+                    Shubhan Mital
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed mb-10">
+                    Bridging the gap between <span class="text-primary">Machine Learning</span> and <span class="text-accent font-mono">Energy Infrastructure</span>. 
+                    Building scalable AI for the next generation of Smart Grids.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:shadow-lg hover:shadow-primary/30 transition-all transform hover:-translate-y-1" href="#projects">
+                        View Projects
+                    </a>
+                    <a class="px-8 py-4 border border-slate-300 dark:border-slate-700 font-bold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" href="https://github.com/Shubhanflash22">
+                        GitHub Profile
+                    </a>
+                </div>
             </div>
-            <a href="#projects" class="btn">View My Work</a>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-200 dark:border-slate-800" id="expertise">
+            <h2 class="text-3xl font-bold mb-16 flex items-center gap-3">
+                <span class="material-icons-round text-primary">analytics</span> Core Expertise
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="p-8 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 glow-effect transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-icons-round">bolt</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Smart Grids & Optimization</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6">Applying Reinforcement Learning (RL) to distributed energy resources and load balancing.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 glow-effect transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-6">
+                        <span class="material-icons-round">memory</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI Engineering</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6">Deploying robust ML models using Docker, PyTorch, and TensorFlow for real-world inference.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 glow-effect transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 mb-6">
+                        <span class="material-icons-round">image</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Generative AI</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6">Researching layout control and spatial awareness in Text-to-Image synthesis models.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 py-24 bg-slate-50/50 dark:bg-slate-900/20" id="projects">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
+                <span class="material-icons-round text-primary">rocket_launch</span> Featured Projects
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl opacity-10 group-hover:opacity-20 transition duration-500"></div>
+                    <div class="relative p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 rounded text-xs font-mono font-bold bg-primary/10 text-primary">RESEARCH</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Smart Grid Load Predictor</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">
+                            Designed a forecasting model to optimize energy distribution in microgrids using LSTM networks.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-2 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded">Python</span>
+                            <span class="px-2 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded">PyTorch</span>
+                            <span class="px-2 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded">Time-Series</span>
+                        </div>
+                        <a class="inline-flex items-center gap-2 text-sm font-bold text-primary" href="https://github.com/Shubhanflash22">
+                            View on GitHub <span class="material-icons-round text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-2xl opacity-10 group-hover:opacity-20 transition duration-500"></div>
+                    <div class="relative p-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 rounded text-xs font-mono font-bold bg-accent/10 text-accent">ENGINEERING</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Generative Layout Control</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">
+                            Implemented control mechanisms for text-to-image models to improve spatial relation accuracy in outputs.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-2 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded">Diffusers</span>
+                            <span class="px-2 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded">HuggingFace</span>
+                        </div>
+                        <a class="inline-flex items-center gap-2 text-sm font-bold text-primary" href="https://github.com/Shubhanflash22">
+                            View on GitHub <span class="material-icons-round text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-200 dark:border-slate-800" id="education">
+            <h2 class="text-3xl font-bold mb-16 flex items-center gap-3">
+                <span class="material-icons-round text-primary">school</span> Education
+            </h2>
+            <div class="space-y-12">
+                <div class="relative pl-10 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-slate-200 dark:before:bg-slate-800">
+                    <div class="absolute left-[-5px] top-2 w-[11px] h-[11px] rounded-full bg-primary ring-4 ring-white dark:ring-background-dark"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold">University of California, San Diego (UCSD)</h3>
+                            <p class="text-primary font-medium">Graduate Student - AI & Engineering</p>
+                        </div>
+                        <div class="text-right text-sm text-slate-500">
+                            <p class="font-bold">Present</p>
+                            <p>San Diego, CA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500">
+        <div class="max-w-7xl mx-auto px-6">
+            <p>© 2026 Shubhan Mital. All rights reserved.</p>
         </div>
-    </header>
-
-    <section id="about" class="container">
-        <h2>About Me</h2>
-        <p>I am a developer bridging the gap between Machine Learning and Energy Systems. currently focusing on AI engineering roles while exploring research in Smart Grids optimization. My goal is to build scalable AI systems that solve real-world infrastructure problems.</p>
-    </section>
-
-    <section id="projects" class="container">
-        <h2>Engineering Projects</h2>
-        <div class="grid" id="repo-container">
-            <p>Loading projects...</p>
-        </div>
-    </section>
-
-    <section id="research" class="container bg-light">
-        <h2>Research Interests</h2>
-        <ul>
-            <li><strong>Smart Grids:</strong> Optimization of distributed energy resources (DERs).</li>
-            <li><strong>Computer Vision:</strong> Generative models and layout control (referencing your recent reading).</li>
-            <li><strong>AI Safety:</strong> Robustness in critical infrastructure systems.</li>
-        </ul>
-    </section>
-
-    <footer id="contact">
-        <h2>Let's Connect</h2>
-        <p>Open to collaborations on AI/ML projects.</p>
-        <p>&copy; 2026 Shubhan</p>
     </footer>
-<script src="script.js"></script>
-</body>
-</html>
+
 </body>
 </html>
