@@ -113,6 +113,11 @@ h2 {
     transition: transform 0.2s;
 }
 
+.card-links {
+    margin-top: auto; /* Pushes links to the bottom if text is short */
+    display: flex;
+    gap: 15px;
+}
 .card:hover {
     transform: translateY(-5px);
 }
