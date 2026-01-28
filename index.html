@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubhan Mital | Portfolio</title>
+    <title>Shubhan Mital | AI & Smart Grids</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -17,288 +17,291 @@
                 extend: {
                     fontFamily: { sans: ['"Outfit"', 'sans-serif'] },
                     colors: {
-                        bg: '#0f172a',      // Dark Blue/Slate
-                        card: '#1e293b',    // Lighter Slate
-                        primary: '#38bdf8', // Sky Blue
-                        text: '#e2e8f0'     // Light Grey
+                        bg: '#020617',       // Deepest Slate (almost black)
+                        surface: '#0f172a',  // Dark Slate
+                        border: '#1e293b',   // Border color
+                        primary: '#0ea5e9',  // Sky Blue 500
+                        glow: '#38bdf8',     // Light Blue (Cyan-ish)
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px -5px rgba(56, 189, 248, 0.3)', // Blue Glow
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #0f172a; color: #e2e8f0; }
+        body { background-color: #020617; color: #94a3b8; }
         
-        /* The Floating Block Animation */
-        .floating-block {
+        /* Bento Card Base Styles */
+        .bento-card {
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 1.5rem; /* Rounded-3xl */
+            padding: 1.5rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
-        .floating-block:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15); /* Blue glow */
-            border-color: rgba(56, 189, 248, 0.4);
+
+        /* Hover Effect: Blue Border & Glow */
+        .bento-card:hover {
+            border-color: #38bdf8; /* Light Blue Border */
+            box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15);
+            transform: translateY(-2px);
         }
         
-        /* Expand/Collapse Animation */
-        .details-content {
+        /* Clickable Cursor for Interactive Cards */
+        .interactive { cursor: pointer; }
+
+        /* Expansion Logic */
+        .details {
             max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, opacity 0.3s ease-in;
             opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-out;
         }
-        .expanded .details-content {
-            max-height: 1000px; /* Arbitrary large height */
+        
+        /* Active State (When Clicked) */
+        .bento-card.expanded {
+            border-color: #38bdf8;
+            background-color: #111a2f; /* Slightly lighter blue-black */
+            box-shadow: 0 0 30px -5px rgba(56, 189, 248, 0.2);
+        }
+        
+        .bento-card.expanded .details {
+            max-height: 1000px; /* Large enough to fit content */
             opacity: 1;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #1e293b;
         }
-        .arrow-icon { transition: transform 0.3s; }
-        .expanded .arrow-icon { transform: rotate(180deg); }
+
+        .icon-rotate { transition: transform 0.3s; }
+        .bento-card.expanded .icon-rotate { transform: rotate(180deg); color: #38bdf8; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
     </style>
 </head>
-<body class="min-h-screen py-12 px-4 md:px-0">
+<body class="min-h-screen p-4 md:p-12 selection:bg-glow selection:text-black">
 
-    <div class="max-w-3xl mx-auto space-y-12">
-        
-        <header class="text-center space-y-4 animate-fade-in">
-            <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight">Shubhan Mital</h1>
-            <div class="text-xl text-primary font-medium">
-                MS ECE Student @ UC San Diego
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-min">
+
+        <div class="col-span-1 md:col-span-2 bento-card justify-center">
+            <div class="mb-4">
+                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold tracking-widest text-glow border border-primary/30 bg-primary/10 rounded-full shadow-neon">
+                    <span class="w-2 h-2 rounded-full bg-glow animate-pulse"></span>
+                    MS ECE @ UCSD
+                </span>
             </div>
-        </header>
-
-        <section class="text-center max-w-2xl mx-auto leading-relaxed text-slate-400">
-            <p>
-                Bridging the gap between <strong>Machine Learning</strong> and <strong>Energy Systems</strong>. 
-                Currently optimizing grid resilience at Yuanyuan Lab. Previously Data Scientist at Piramal Pharma & SDE Intern at Amazon. 
-                Passionate about building scalable AI for critical infrastructure.
+            <h1 class="text-5xl font-bold text-white mb-4 tracking-tight">Shubhan Mital</h1>
+            <p class="text-lg leading-relaxed text-slate-400">
+                Bridging <span class="text-glow font-medium">Machine Learning</span> and <span class="text-glow font-medium">Energy Systems</span>. 
+                Currently optimizing grid resilience at Yuanyuan Lab.
             </p>
-        </section>
+        </div>
 
-        <div class="flex justify-center gap-6">
-            <a href="https://linkedin.com/in/Shubhan-Mital" target="_blank" class="flex flex-col items-center gap-2 group">
-                <div class="p-3 bg-card rounded-xl border border-slate-700 group-hover:border-primary transition-colors">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" class="w-6 h-6 invert">
-                </div>
-                <span class="text-xs font-medium text-slate-500 group-hover:text-primary">LinkedIn</span>
+        <div class="col-span-1 bento-card justify-center gap-4">
+            <a href="https://linkedin.com/in/Shubhan-Mital" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-bg/50 border border-border hover:border-glow hover:text-white transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" class="w-5 h-5 invert opacity-60 group-hover:opacity-100 transition-opacity">
+                <span class="text-sm font-bold">LinkedIn</span>
             </a>
-            <a href="https://github.com/Shubhanflash22" target="_blank" class="flex flex-col items-center gap-2 group">
-                <div class="p-3 bg-card rounded-xl border border-slate-700 group-hover:border-primary transition-colors">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 invert">
-                </div>
-                <span class="text-xs font-medium text-slate-500 group-hover:text-primary">GitHub</span>
+            <a href="https://github.com/Shubhanflash22" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-bg/50 border border-border hover:border-glow hover:text-white transition-all group">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-5 h-5 invert opacity-60 group-hover:opacity-100 transition-opacity">
+                <span class="text-sm font-bold">GitHub</span>
             </a>
-            <a href="mailto:shubhanmital@gmail.com" class="flex flex-col items-center gap-2 group">
-                <div class="p-3 bg-card rounded-xl border border-slate-700 group-hover:border-primary transition-colors">
-                    <span class="material-icons-round text-white">email</span>
-                </div>
-                <span class="text-xs font-medium text-slate-500 group-hover:text-primary">Email</span>
+            <a href="mailto:shubhanmital@gmail.com" class="flex items-center gap-3 p-3 rounded-xl bg-bg/50 border border-border hover:border-glow hover:text-white transition-all group">
+                <span class="material-icons-round text-lg opacity-60 group-hover:opacity-100 group-hover:text-glow">email</span>
+                <span class="text-sm font-bold">Email Me</span>
             </a>
         </div>
 
-        <section>
-            <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 ml-2">Current Research</h2>
-            
-            <div class="floating-block bg-card border border-slate-700 rounded-2xl p-6" onclick="toggleCard(this)">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h3 class="text-xl font-bold text-white">Yuanyuan Lab @ UCSD</h3>
-                        <p class="text-primary text-sm">Graduate Researcher • Grid Resilience</p>
+        <div class="col-span-1 bento-card">
+            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Education Stats</h3>
+            <div class="space-y-6">
+                <div>
+                    <div class="flex justify-between items-baseline mb-1">
+                        <span class="text-white font-bold text-sm">UC San Diego</span>
+                        <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20">3.53 GPA</span>
                     </div>
-                    <span class="material-icons-round text-slate-500 arrow-icon">expand_more</span>
+                    <p class="text-xs text-slate-500">MS Electrical & Computer Eng.</p>
                 </div>
-                
-                <div class="details-content text-slate-300 space-y-3 text-sm">
-                    <div class="h-px bg-slate-700 my-4"></div>
-                    <ul class="list-disc pl-5 space-y-2">
-                        [cite_start]<li>Working on optimization of mobile battery storage for electric construction vehicle charging[cite: 3].</li>
-                        [cite_start]<li>Analyzing construction vehicle videos with minute-by-minute SOC data using Computer Vision models[cite: 4].</li>
-                        [cite_start]<li>Developing AI-based optimization strategies to schedule battery charging/discharging, enabling scalable deployment of mobile EV infrastructure[cite: 5].</li>
-                    </ul>
+                <div>
+                    <div class="flex justify-between items-baseline mb-1">
+                        <span class="text-white font-bold text-sm">BITS Pilani</span>
+                        <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20">8.48 CGPA</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Dual Degree (MSc Math + BE)</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="grid md:grid-cols-2 gap-6">
-            <div>
-                <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 ml-2">Education</h2>
-                
-                <div class="bg-card border border-slate-700 rounded-2xl p-6 mb-4 hover:border-slate-500 transition-colors">
-                    <div class="flex justify-between items-start">
-                        <h3 class="font-bold text-white">UC San Diego</h3>
-                        <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded">3.53 GPA</span>
-                    </div>
-                    <p class="text-sm text-slate-400">MS Electrical & Computer Eng.</p>
-                    [cite_start]<p class="text-xs text-slate-500 mt-1">Specialization: ML & Data Science [cite: 8]</p>
-                </div>
-
-                <div class="bg-card border border-slate-700 rounded-2xl p-6 hover:border-slate-500 transition-colors">
-                    <div class="flex justify-between items-start">
-                        <h3 class="font-bold text-white">BITS Pilani</h3>
-                        <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">8.48 CGPA</span>
-                    </div>
-                    <p class="text-sm text-slate-400">Dual Degree (MSc Math + BE EEE)</p>
-                    [cite_start]<p class="text-xs text-slate-500 mt-1">Division: First [cite: 121]</p>
-                </div>
-            </div>
-
-            <div>
-                <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 ml-2">Technical Skills</h2>
-                <div class="bg-card border border-slate-700 rounded-2xl p-6 h-full">
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-xs text-slate-500 block mb-2">Languages</span>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-slate-800 rounded text-xs text-white border border-slate-600">Python</span>
-                                <span class="px-2 py-1 bg-slate-800 rounded text-xs text-white border border-slate-600">C++</span>
-                                <span class="px-2 py-1 bg-slate-800 rounded text-xs text-white border border-slate-600">SQL</span>
-                                <span class="px-2 py-1 bg-slate-800 rounded text-xs text-white border border-slate-600">MATLAB</span>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-500 block mb-2">ML & Cloud</span>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-blue-900/30 rounded text-xs text-blue-200 border border-blue-800">PyTorch</span>
-                                <span class="px-2 py-1 bg-blue-900/30 rounded text-xs text-blue-200 border border-blue-800">AWS Lambda</span>
-                                <span class="px-2 py-1 bg-blue-900/30 rounded text-xs text-blue-200 border border-blue-800">Azure Databricks</span>
-                                <span class="px-2 py-1 bg-blue-900/30 rounded text-xs text-blue-200 border border-blue-800">ROS2</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="space-y-4">
-            <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-2 ml-2">Work Experience</h2>
-
-            <div class="floating-block bg-card border border-slate-700 rounded-2xl p-6" onclick="toggleCard(this)">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h3 class="text-lg font-bold text-white">Data Scientist</h3>
-                        <p class="text-slate-400 text-sm">Piramal Pharma Ltd. • Mumbai</p>
-                    </div>
-                    <span class="material-icons-round text-slate-500 arrow-icon">expand_more</span>
-                </div>
-                <div class="details-content text-slate-300 text-sm">
-                    <div class="h-px bg-slate-700 my-4"></div>
-                    <ul class="list-disc pl-5 space-y-2">
-                        [cite_start]<li><strong>60% Efficiency Boost:</strong> Engineered scalable automation solutions using Azure Databricks, ADF, and Snowflake[cite: 23].</li>
-                        [cite_start]<li><strong>Forecasting:</strong> Developed ML-based tool to predict stock-out and expiry risks 24 months in advance[cite: 25].</li>
-                        [cite_start]<li><strong>Automation:</strong> Automated pricing workflows, decreasing turnaround time for key processes by 70%[cite: 27].</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="floating-block bg-card border border-slate-700 rounded-2xl p-6" onclick="toggleCard(this)">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h3 class="text-lg font-bold text-white">Data Science Intern</h3>
-                        <p class="text-slate-400 text-sm">Piramal Pharma Ltd. • Jan '24 - June '24</p>
-                    </div>
-                    <span class="material-icons-round text-slate-500 arrow-icon">expand_more</span>
-                </div>
-                <div class="details-content text-slate-300 text-sm">
-                    <div class="h-px bg-slate-700 my-4"></div>
-                    <ul class="list-disc pl-5 space-y-2">
-                        [cite_start]<li>Delivered actionable financial insights via Profitability Report and NPD Dashboard[cite: 31].</li>
-                        [cite_start]<li>Improved operational efficiency by 50% and data accuracy by 90% through automated price scrapers[cite: 33].</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="floating-block bg-card border border-slate-700 rounded-2xl p-6" onclick="toggleCard(this)">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h3 class="text-lg font-bold text-white">SDE Intern</h3>
-                        <p class="text-slate-400 text-sm">Amazon • Bangalore • July '23 - Dec '23</p>
-                    </div>
-                    <span class="material-icons-round text-slate-500 arrow-icon">expand_more</span>
-                </div>
-                <div class="details-content text-slate-300 text-sm">
-                    <div class="h-px bg-slate-700 my-4"></div>
-                    <ul class="list-disc pl-5 space-y-2">
-                        [cite_start]<li><strong>$5 Million Saved:</strong> Integrated ETL Fetcher tools, preventing data discrepancies and financial losses[cite: 38].</li>
-                        [cite_start]<li>Implemented CI/CD pipelines saving 15 hours per development cycle[cite: 40].</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="space-y-4">
-            <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-2 ml-2">Projects</h2>
-
-            <div class="floating-block bg-card border border-slate-700 rounded-2xl p-6" onclick="toggleCard(this)">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                        <span class="material-icons-round text-primary">directions_car</span>
-                        <h3 class="text-lg font-bold text-white">Autonomous Navigation System</h3>
-                    </div>
-                    <span class="material-icons-round text-slate-500 arrow-icon">expand_more</span>
-                </div>
-                <div class="details-content text-slate-300 text-sm">
-                    <div class="h-px bg-slate-700 my-4"></div>
-                    <p class="mb-2 text-primary text-xs font-mono">ROS2 • Python • YOLO • LiDAR</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        [cite_start]<li>Built an autonomous navigation system combining YOLO-based perception and multi-sensor fusion on embedded platforms[cite: 43].</li>
-                        [cite_start]<li>Integrated GPS and LiDAR with PD control enabling closed-loop obstacle avoidance[cite: 44].</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="floating-block bg-card border border-slate-700 rounded-2xl p-6" onclick="toggleCard(this)">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                        <span class="material-icons-round text-emerald-400">battery_charging_full</span>
-                        <h3 class="text-lg font-bold text-white">Renewable Storage Optimization</h3>
-                    </div>
-                    <span class="material-icons-round text-slate-500 arrow-icon">expand_more</span>
-                </div>
-                <div class="details-content text-slate-300 text-sm">
-                    <div class="h-px bg-slate-700 my-4"></div>
-                    <p class="mb-2 text-emerald-400 text-xs font-mono">Deep Learning • LSTM • ANN</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        [cite_start]<li>Developed ANN, LSTM and RNN models for VRFB power loss forecasting[cite: 49].</li>
-                        [cite_start]<li>Improved prediction accuracy by 40-70% enabling more cost-efficient and energy efficient VRFBs[cite: 50].</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="floating-block bg-card border border-slate-700 rounded-2xl p-6" onclick="toggleCard(this)">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                        <span class="material-icons-round text-purple-400">psychology</span>
-                        <h3 class="text-lg font-bold text-white">Happiness Index Prediction</h3>
-                    </div>
-                    <span class="material-icons-round text-slate-500 arrow-icon">expand_more</span>
-                </div>
-                <div class="details-content text-slate-300 text-sm">
-                    <div class="h-px bg-slate-700 my-4"></div>
-                    <p class="mb-2 text-purple-400 text-xs font-mono">Statistical Modeling • Regression</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        [cite_start]<li>Engineered an end-to-end statistical learning pipeline on multi-source global datasets[cite: 46].</li>
-                        [cite_start]<li>Applied feature engineering and regression models achieving R²=0.88[cite: 47].</li>
-                    </ul>
-                </div>
+        <div class="col-span-1 md:col-span-4 bento-card">
+            <div class="flex items-center gap-2 mb-6">
+                <span class="material-icons-round text-glow">memory</span>
+                <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Technical Arsenal</h3>
             </div>
             
-            <div class="text-center mt-8">
-                <a href="https://github.com/Shubhanflash22?tab=repositories" target="_blank" class="text-primary hover:text-white underline decoration-dashed underline-offset-4 text-sm transition-colors">
-                    Find more or rest of the projects at my github repo link &rarr;
-                </a>
-            </div>
-        </section>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-3 border-l-2 border-glow pl-3">Languages</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Python</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">C++</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">SQL</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">MATLAB</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Bash/Linux</span>
+                    </div>
+                </div>
 
-        <footer class="text-center text-slate-600 text-xs pb-8">
-            <p>&copy; 2026 Shubhan Mital. Built with modern web tech.</p>
-        </footer>
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-3 border-l-2 border-primary pl-3">AI & Frameworks</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">PyTorch</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">TensorFlow</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Scikit-learn</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">OpenCV</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Pandas</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-3 border-l-2 border-accent pl-3">Robotics & Cloud</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">ROS 2</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">AWS (Lambda/S3)</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Azure Databricks</span>
+                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-2 bento-card interactive group" onclick="toggleCard(this)">
+            <div class="flex justify-between items-start w-full">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 rounded-lg bg-glow/10 text-glow">
+                        <span class="material-icons-round">science</span>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-white group-hover:text-glow transition-colors">Yuanyuan Lab Research</h2>
+                        <p class="text-xs text-primary font-mono mt-1">Graduate Researcher • Smart Grids & EV</p>
+                    </div>
+                </div>
+                <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
+            </div>
+            
+            <div class="details text-sm text-slate-300">
+                <ul class="list-disc pl-4 space-y-3 marker:text-glow">
+                    [cite_start]<li>[cite: 3] Working on optimization of mobile battery storage for electric construction vehicle charging and grid resilience.</li>
+                    [cite_start]<li>[cite: 4] Analyzing construction vehicle videos with minute-by-minute SOC data and designing a computer vision model to accurately map vehicle activity to energy consumption.</li>
+                    [cite_start]<li>[cite: 5] Developing AI-based optimization strategies that use the activity-to-SOC mapping to schedule battery charging/discharging.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-2 bento-card interactive group" onclick="toggleCard(this)">
+            <div class="flex justify-between items-start w-full">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 rounded-lg bg-blue-600/10 text-blue-400">
+                        <span class="material-icons-round">work</span>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Industry Experience</h2>
+                        <p class="text-xs text-blue-400 font-mono mt-1">Piramal Pharma & Amazon</p>
+                    </div>
+                </div>
+                <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
+            </div>
+            
+            <div class="details text-sm text-slate-300">
+                <div class="mb-6">
+                    <h4 class="text-white font-bold mb-2 flex justify-between">
+                        Data Scientist @ Piramal Pharma
+                        <span class="text-xs text-slate-500 font-normal">Sept '24 - Sept '25</span>
+                    </h4>
+                    <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
+                        [cite_start]<li>[cite: 23] Engineered and deployed 4+ scalable automation solutions using Azure Databricks, ADF, and Snowflake.</li>
+                        [cite_start]<li>[cite: 25] Developed an ML-based forecasting tool to predict stock-out and expiry risks 24 months in advance.</li>
+                        [cite_start]<li>[cite: 27] Automated pricing workflows, decreasing the turnaround time for key processes by 70%.</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-2 flex justify-between">
+                        SDE Intern @ Amazon
+                        <span class="text-xs text-slate-500 font-normal">July '23 - Dec '23</span>
+                    </h4>
+                    <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
+                        [cite_start]<li>[cite: 37] Developed and integrated ETL Fetcher and Validator tools, enhancing accuracy of ETL output validation.</li>
+                        [cite_start]<li>[cite: 38] Prevented data discrepancies, mitigating financial losses of up to $5 million.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this)">
+            <div class="flex justify-between items-start w-full">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 rounded-lg bg-emerald-500/10 text-emerald-400">
+                        <span class="material-icons-round">code</span>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Engineering Projects</h2>
+                        <p class="text-xs text-emerald-400 font-mono mt-1">ROS2 • Deep Learning • Statistics</p>
+                    </div>
+                </div>
+                <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
+            </div>
+            
+            <div class="details">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-bg/50 p-4 rounded-xl border border-border">
+                        <h4 class="text-white font-bold mb-2">Autonomous Nav System</h4>
+                        <p class="text-xs text-emerald-400 mb-2 font-mono">ROS2 • Python • YOLO</p>
+                        [cite_start]<p class="text-sm text-slate-400">[cite: 43] [cite_start]Built an autonomous navigation system combining YOLO-based perception and multi-sensor fusion. [cite: 44] Integrated GPS and LiDAR for closed-loop obstacle avoidance.</p>
+                    </div>
+
+                    <div class="bg-bg/50 p-4 rounded-xl border border-border">
+                        <h4 class="text-white font-bold mb-2">Battery Optimization</h4>
+                        <p class="text-xs text-emerald-400 mb-2 font-mono">LSTM • ANN • Energy</p>
+                        [cite_start]<p class="text-sm text-slate-400">[cite: 49] [cite_start]Developed ANN, LSTM and RNN models for VRFB power loss forecasting. [cite: 50] Improved prediction accuracy by 40-70%.</p>
+                    </div>
+
+                    <div class="bg-bg/50 p-4 rounded-xl border border-border">
+                        <h4 class="text-white font-bold mb-2">Happiness Index Model</h4>
+                        <p class="text-xs text-emerald-400 mb-2 font-mono">Regression • Statistics</p>
+                        [cite_start]<p class="text-sm text-slate-400">[cite: 46] [cite_start]Engineered a statistical learning pipeline on global datasets. [cite: 47] Achieved R²=0.88 in predicting national happiness scores.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <a href="https://github.com/Shubhanflash22?tab=repositories" target="_blank" class="inline-flex items-center gap-2 text-glow hover:text-white transition-colors border-b border-dashed border-glow hover:border-white pb-1">
+                        <span class="text-sm font-bold">Find more or rest of the projects at my github repo link</span>
+                        <span class="material-icons-round text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </div>
 
+    <footer class="text-center text-slate-700 text-xs mt-12 mb-6 font-mono">
+        // DESIGNED FOR SHUBHAN MITAL
+    </footer>
+
     <script>
         function toggleCard(element) {
-            // Toggle the 'expanded' class on the clicked element
-            element.classList.toggle('expanded');
+            // Check if clicked element is interactive
+            if (element.classList.contains('interactive')) {
+                element.classList.toggle('expanded');
+            }
         }
     </script>
 </body>
