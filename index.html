@@ -45,6 +45,11 @@
             display: flex;
             flex-direction: column;
         }
+        .details,
+        .details * {
+            cursor: text;
+            user-select: text;
+        }
 
         /* Hover Effect */
         .bento-card:hover {
@@ -105,7 +110,7 @@
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-min">
 
-        <div class="col-span-1 md:col-span-3 bento-card interactive group" onclick="toggleCard(this)">
+        <div class="col-span-1 md:col-span-3 bento-card interactive group" onclick="toggleCard(this, event)">
             <div class="flex justify-between items-start">
                 <div>
                     <div class="mb-4">
@@ -139,7 +144,7 @@
             </div>
         </div>
 
-        <div class="col-span-1 bento-card h-full relative overflow-hidden group interactive" onclick="toggleCard(this)">
+        <div class="col-span-1 bento-card h-full relative overflow-hidden group interactive" onclick="toggleCard(this, event)">
             <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
                 <span class="material-icons-round text-9xl text-slate-500">school</span>
             </div>
@@ -212,7 +217,7 @@
 
 </div>
 
-     <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this)">
+     <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this, event)">
     
     <div class="flex justify-between items-start mb-6">
         <div class="flex items-center gap-2">
@@ -310,7 +315,6 @@
 </div>
 
 <style>
-    /* Default: Hidden */
     .skill-list {
         max-height: 0;
         opacity: 0;
@@ -323,8 +327,7 @@
         opacity: 1;
     }
 </style>
-
-        <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this)">
+        <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this, event)">
             <div class="flex justify-between items-start w-full">
                 <div class="flex items-center gap-4">
                     <div class="p-3 rounded-lg bg-glow/10 text-glow">
@@ -348,7 +351,7 @@
             </div>
         </div>
 
-        <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this)">
+        <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this, event)">
             <div class="flex justify-between items-start w-full">
                 <div class="flex items-center gap-4">
                     <div class="p-3 rounded-lg bg-blue-600/10 text-blue-400">
@@ -436,7 +439,7 @@
             </div>
         </div>
 
-<div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this)">
+<div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this, event)">
     
     <div class="flex justify-between items-start mb-0 group-hover:mb-6 transition-all duration-300">
         <div class="flex items-center gap-4">
@@ -521,13 +524,18 @@
         // DESIGNED BY SHUBHAN MITAL
     </footer>
 
-    <script>
-        function toggleCard(element) {
-            // Check if clicked element is interactive
-            if (element.classList.contains('interactive')) {
-                element.classList.toggle('expanded');
-            }
-        }
-    </script>
+<script>
+function toggleCard(card, event) {
+    // Ignore clicks inside expandable content
+    if (
+        event.target.closest('.details') ||
+        event.target.closest('.skill-list') ||
+        event.target.closest('.edu-details')
+    ) return;
+
+    card.classList.toggle('expanded');
+}
+</script>
+
 </body>
 </html>
