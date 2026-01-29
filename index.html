@@ -17,14 +17,14 @@
                 extend: {
                     fontFamily: { sans: ['"Outfit"', 'sans-serif'] },
                     colors: {
-                        bg: '#020617',       // Deepest Slate (almost black)
-                        surface: '#0f172a',  // Dark Slate
-                        border: '#1e293b',   // Border color
-                        primary: '#0ea5e9',  // Sky Blue 500
-                        glow: '#38bdf8',     // Light Blue (Cyan-ish)
+                        bg: '#020617',       // Deepest Slate
+                        surface: '#0f172a',  // Card Background
+                        border: '#1e293b',   // Border
+                        primary: '#0ea5e9',  // Sky Blue
+                        glow: '#38bdf8',     // Cyan Glow
                     },
                     boxShadow: {
-                        'neon': '0 0 20px -5px rgba(56, 189, 248, 0.3)', // Blue Glow
+                        'neon': '0 0 20px -5px rgba(56, 189, 248, 0.3)',
                     }
                 }
             }
@@ -37,7 +37,7 @@
         .bento-card {
             background-color: #0f172a;
             border: 1px solid #1e293b;
-            border-radius: 1.5rem; /* Rounded-3xl */
+            border-radius: 1.5rem;
             padding: 1.5rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -46,43 +46,55 @@
             flex-direction: column;
         }
 
-        /* Hover Effect: Blue Border & Glow */
+        /* Hover Effect */
         .bento-card:hover {
-            border-color: #38bdf8; /* Light Blue Border */
+            border-color: #38bdf8;
             box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15);
             transform: translateY(-2px);
         }
         
-        /* Clickable Cursor for Interactive Cards */
+        /* Interactive State */
         .interactive { cursor: pointer; }
 
         /* Expansion Logic */
-        .details {
+        .details, .edu-details, .skill-list {
             max-height: 0;
             opacity: 0;
             overflow: hidden;
             transition: all 0.5s ease-out;
         }
         
-        /* Active State (When Clicked) */
         .bento-card.expanded {
             border-color: #38bdf8;
-            background-color: #111a2f; /* Slightly lighter blue-black */
+            background-color: #111a2f;
             box-shadow: 0 0 30px -5px rgba(56, 189, 248, 0.2);
         }
         
+        /* Expand Animations */
         .bento-card.expanded .details {
-            max-height: 1000px; /* Large enough to fit content */
+            max-height: 1000px;
             opacity: 1;
             margin-top: 1.5rem;
             padding-top: 1.5rem;
             border-top: 1px solid #1e293b;
         }
 
+        .bento-card.expanded .edu-details {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 0.25rem;
+        }
+
+        .bento-card.expanded .skill-list {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* Icon Rotation */
         .icon-rotate { transition: transform 0.3s; }
         .bento-card.expanded .icon-rotate { transform: rotate(180deg); color: #38bdf8; }
         
-        /* Custom Scrollbar */
+        /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #020617; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
@@ -93,95 +105,223 @@
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-min">
 
-        <div class="col-span-1 md:col-span-2 bento-card justify-center">
-            <div class="mb-4">
-                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold tracking-widest text-glow border border-primary/30 bg-primary/10 rounded-full shadow-neon">
-                    <span class="w-2 h-2 rounded-full bg-glow animate-pulse"></span>
-                    MS ECE @ UCSD
-                </span>
+        <div class="col-span-1 md:col-span-3 bento-card interactive group" onclick="toggleCard(this)">
+            <div class="flex justify-between items-start">
+                <div>
+                    <div class="mb-4">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold tracking-widest text-glow border border-primary/30 bg-primary/10 rounded-full shadow-neon">
+                            <span class="w-2 h-2 rounded-full bg-glow animate-pulse"></span>
+                            MS ECE @ UCSD
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight">Shubhan Mital</h1>
+                </div>
+                <span class="material-icons-round text-slate-600 icon-rotate text-4xl opacity-50 group-hover:opacity-100 transition-opacity mt-2">expand_more</span>
             </div>
-            <h1 class="text-5xl font-bold text-white mb-4 tracking-tight">Shubhan Mital</h1>
-            <p class="text-lg leading-relaxed text-slate-400">
-                Bridging <span class="text-glow font-medium">Machine Learning</span> and <span class="text-glow font-medium">Energy Systems</span>. 
-                Currently optimizing grid resilience at Yuanyuan Lab.
-            </p>
+
+            <div class="details space-y-6 text-lg text-slate-400">
+                <p class="leading-relaxed">
+                    I am a <span class="text-glow font-medium">Master’s student in Electrical & Computer Engineering</span> at 
+                    <span class="text-glow font-medium">UC San Diego</span>, specializing in 
+                    <span class="text-glow font-medium">Machine Learning and Data Science</span>. 
+                    I work at the intersection of <span class="text-glow font-medium">AI</span>, 
+                    <span class="text-glow font-medium">computer vision</span>, and 
+                    <span class="text-glow font-medium">energy systems</span>.
+                </p>
+                <p class="leading-relaxed">
+                    At <span class="text-white font-medium">Yuanyuan Lab (UCSD)</span>, I research optimization of mobile battery storage for electric construction vehicles by combining 
+                    <span class="text-glow font-medium">deep learning</span> and <span class="text-glow font-medium">energy modeling</span>. 
+                    Previously, I have built ML-powered forecasting systems at <span class="text-blue-400 font-medium">Amazon</span> and <span class="text-blue-400 font-medium">Piramal Pharma</span>.
+                </p>
+                <p class="leading-relaxed">
+                    Outside of work, I analyze Formula 1 strategies and cricket scorecards, enjoy hiking, and ask “why” a few too many times.
+                </p>
+            </div>
         </div>
 
-        <div class="col-span-1 bento-card justify-center gap-4">
-            <a href="https://linkedin.com/in/Shubhan-Mital" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-bg/50 border border-border hover:border-glow hover:text-white transition-all group">
+        <div class="col-span-1 bento-card h-full relative overflow-hidden group interactive" onclick="toggleCard(this)">
+            <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                <span class="material-icons-round text-9xl text-slate-500">school</span>
+            </div>
+
+            <div class="relative z-10">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                        <span class="material-icons-round text-sm">history_edu</span>
+                        Education
+                    </h3>
+                    <span class="material-icons-round text-slate-600 icon-rotate text-xl">expand_more</span>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="relative pl-4 border-l-2 border-glow/50 transition-all duration-500">
+                        <h4 class="text-white font-bold text-sm tracking-wide py-1">UC San Diego</h4>
+                        <div class="edu-details text-slate-400">
+                            <div class="flex items-center gap-2 mb-2 mt-1">
+                                <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20 shadow-neon">3.53 GPA</span>
+                                <span class="text-[10px] text-slate-500 font-mono">2025-2027</span>
+                            </div>
+                            <p class="text-xs text-glow font-medium mb-1">MS ECE (ML & DS)</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-4 border-l-2 border-slate-800 group-hover:border-glow/30 transition-colors duration-500">
+                        <h4 class="text-white font-bold text-sm tracking-wide py-1">BITS Pilani</h4>
+                        <div class="edu-details text-slate-400">
+                            <div class="flex items-center gap-2 mb-2 mt-1">
+                                <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20 shadow-neon">8.48 CGPA</span>
+                                <span class="text-[10px] text-slate-500 font-mono">2019-2024</span>
+                            </div>
+                            <p class="text-xs text-glow font-medium mb-1">MSc Math + BE EEE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-4 bento-card !flex-row justify-between items-center py-4">
+            <a href="https://linkedin.com/in/Shubhan-Mital" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 hover:text-glow transition-all group">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" class="w-5 h-5 invert opacity-60 group-hover:opacity-100 transition-opacity">
                 <span class="text-sm font-bold">LinkedIn</span>
             </a>
-            <a href="https://github.com/Shubhanflash22" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-bg/50 border border-border hover:border-glow hover:text-white transition-all group">
+            
+            <a href="https://github.com/Shubhanflash22" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 hover:text-glow transition-all group">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-5 h-5 invert opacity-60 group-hover:opacity-100 transition-opacity">
                 <span class="text-sm font-bold">GitHub</span>
             </a>
-            <a href="mailto:shubhanmital@gmail.com" class="flex items-center gap-3 p-3 rounded-xl bg-bg/50 border border-border hover:border-glow hover:text-white transition-all group">
-                <span class="material-icons-round text-lg opacity-60 group-hover:opacity-100 group-hover:text-glow">email</span>
+            
+            <a href="mailto:smital@ucsd.edu" class="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 hover:text-glow transition-all group">
+                <span class="material-icons-round text-xl opacity-60 group-hover:opacity-100 group-hover:text-glow">email</span>
                 <span class="text-sm font-bold">Email Me</span>
+            </a>
+
+            <a href="tel:+18582147189" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/5 hover:text-glow transition-all group">
+                <span class="material-icons-round text-xl opacity-60 group-hover:opacity-100 group-hover:text-glow">phone</span>
+                <span class="text-sm font-bold">Contact</span>
+            </a>
+
+            <a href="./shubhan_Resume.pdf" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 hover:text-glow transition-all group">
+                <span class="material-icons-round text-xl opacity-60 group-hover:opacity-100 group-hover:text-glow">description</span>
+                <span class="text-sm font-bold">Resume</span>
+            </a>
+
+            <a href="https://scholar.google.com/citations?hl=en&user=ZU2NogUAAAAJ&view_op=list_works&gmla=APjjwuZl7dQPsPqYk_El8zlYGS8izOviNizm9LHcIZ982eT4NZGglFZNyYbtheFZji7RhbTK7gSAJiQi_ErJBHjR" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/5 hover:text-glow transition-all group">
+                <span class="material-icons-round text-xl opacity-60 group-hover:opacity-100 group-hover:text-glow">school</span>
+                <span class="text-sm font-bold">Scholar</span>
             </a>
         </div>
 
-        <div class="col-span-1 bento-card">
-            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Education Stats</h3>
-            <div class="space-y-6">
-                <div>
-                    <div class="flex justify-between items-baseline mb-1">
-                        <span class="text-white font-bold text-sm">UC San Diego</span>
-                        <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20">3.53 GPA</span>
-                    </div>
-                    <p class="text-xs text-slate-500">MS Electrical & Computer Eng.</p>
-                </div>
-                <div>
-                    <div class="flex justify-between items-baseline mb-1">
-                        <span class="text-white font-bold text-sm">BITS Pilani</span>
-                        <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20">8.48 CGPA</span>
-                    </div>
-                    <p class="text-xs text-slate-500">Dual Degree (MSc Math + BE)</p>
-                </div>
-            </div>
+     <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this)">
+    
+    <div class="flex justify-between items-start mb-6">
+        <div class="flex items-center gap-2">
+            <span class="material-icons-round text-glow">memory</span>
+            <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Technical Arsenal</h3>
+        </div>
+        <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-x-8 gap-y-6">
+        
+        <div>
+            <h4 class="text-white text-sm font-bold flex items-center gap-2 py-2">
+                <span class="w-1 h-6 bg-glow rounded-full"></span>
+                GenAI & Deep Learning
+            </h4>
+            <ul class="skill-list space-y-2 text-sm text-slate-400">
+                <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-glow shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>Agentic AI & LLMs</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-glow"></span>Transformers (BERT/GPT)</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-glow"></span>PyTorch & TensorFlow</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-glow"></span>Hugging Face & Keras</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-glow"></span>Computer Vision (YOLO)</li>
+            </ul>
         </div>
 
-        <div class="col-span-1 md:col-span-4 bento-card">
-            <div class="flex items-center gap-2 mb-6">
-                <span class="material-icons-round text-glow">memory</span>
-                <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Technical Arsenal</h3>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h4 class="text-white text-sm font-bold mb-3 border-l-2 border-glow pl-3">Languages</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Python</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">C++</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">SQL</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">MATLAB</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Bash/Linux</span>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-white text-sm font-bold mb-3 border-l-2 border-primary pl-3">AI & Frameworks</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">PyTorch</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">TensorFlow</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Scikit-learn</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">OpenCV</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Pandas</span>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-white text-sm font-bold mb-3 border-l-2 border-accent pl-3">Robotics & Cloud</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">ROS 2</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">AWS (Lambda/S3)</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Azure Databricks</span>
-                        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-bg border border-border text-slate-300 hover:border-glow hover:text-glow transition-colors">Docker</span>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <h4 class="text-white text-sm font-bold flex items-center gap-2 py-2">
+                <span class="w-1 h-6 bg-emerald-500 rounded-full"></span>
+                Robotics & Embedded
+            </h4>
+            <ul class="skill-list space-y-2 text-sm text-slate-400">
+                <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>ROS 2 (Robot Operating System)</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>OpenCV & Path Planning</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Sensor Integration (LiDAR)</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Embedded C</li>
+            </ul>
         </div>
+
+        <div>
+            <h4 class="text-white text-sm font-bold flex items-center gap-2 py-2">
+                <span class="w-1 h-6 bg-blue-500 rounded-full"></span>
+                Cloud & Tools
+            </h4>
+            <ul class="skill-list space-y-2 text-sm text-slate-400">
+                <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>AWS (Lambda, S3)</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Azure (Databricks, ADF)</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Docker & Git</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Excel & PowerApps</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-white text-sm font-bold flex items-center gap-2 py-2">
+                <span class="w-1 h-6 bg-slate-500 rounded-full"></span>
+                Languages
+            </h4>
+            <ul class="skill-list space-y-2 text-sm text-slate-400">
+                <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>Python</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>C++ & C</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>SQL & NoSQL</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>MATLAB & Bash</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>Java</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-white text-sm font-bold flex items-center gap-2 py-2">
+                <span class="w-1 h-6 bg-purple-500 rounded-full"></span>
+                Data Science Core
+            </h4>
+            <ul class="skill-list space-y-2 text-sm text-slate-400">
+                <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Pandas</li>
+                <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Numpy</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Scikit-learn</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Predictive Modeling</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>NLP</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-white text-sm font-bold flex items-center gap-2 py-2">
+                <span class="w-1 h-6 bg-pink-500 rounded-full"></span>
+                Web & Full Stack
+            </h4>
+            <ul class="skill-list space-y-2 text-sm text-slate-400">
+                <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>React</li>
+                <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>Node.js</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>REST APIs</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>Tailwind CSS</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>Spring Framework</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    /* Default: Hidden */
+    .skill-list {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Expanded: Visible */
+    .bento-card.expanded .skill-list {
+        max-height: 500px; /* Arbitrary large height */
+        opacity: 1;
+    }
+</style>
 
         <div class="col-span-1 md:col-span-2 bento-card interactive group" onclick="toggleCard(this)">
             <div class="flex justify-between items-start w-full">
@@ -192,6 +332,7 @@
                     <div>
                         <h2 class="text-lg font-bold text-white group-hover:text-glow transition-colors">Yuanyuan Lab Research</h2>
                         <p class="text-xs text-primary font-mono mt-1">Graduate Researcher • Smart Grids & EV</p>
+                        <p class="text-xs text-primary font-mono mt-1">Oct '25 - Ongoing</p>
                     </div>
                 </div>
                 <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
@@ -199,9 +340,9 @@
             
             <div class="details text-sm text-slate-300">
                 <ul class="list-disc pl-4 space-y-3 marker:text-glow">
-                    [cite_start]<li>[cite: 3] Working on optimization of mobile battery storage for electric construction vehicle charging and grid resilience.</li>
-                    [cite_start]<li>[cite: 4] Analyzing construction vehicle videos with minute-by-minute SOC data and designing a computer vision model to accurately map vehicle activity to energy consumption.</li>
-                    [cite_start]<li>[cite: 5] Developing AI-based optimization strategies that use the activity-to-SOC mapping to schedule battery charging/discharging.</li>
+                    <li> Working on optimization of mobile battery storage for electric construction vehicle charging and grid resilience.</li>
+                    <li> Analyzing construction vehicle videos with minute-by-minute SOC data and designing a computer vision model to accurately map vehicle activity to energy consumption.</li>
+                    <li> Developing AI-based optimization strategies that use the activity-to-SOC mapping to schedule battery charging/discharging.</li>
                 </ul>
             </div>
         </div>
@@ -214,35 +355,83 @@
                     </div>
                     <div>
                         <h2 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Industry Experience</h2>
-                        <p class="text-xs text-blue-400 font-mono mt-1">Piramal Pharma & Amazon</p>
+                        <p class="text-xs text-blue-400 font-mono mt-1">Piramal Pharma Ltd. & Amazon Development Center</p>
                     </div>
                 </div>
                 <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
             </div>
             
             <div class="details text-sm text-slate-300">
-                <div class="mb-6">
-                    <h4 class="text-white font-bold mb-2 flex justify-between">
-                        Data Scientist @ Piramal Pharma
-                        <span class="text-xs text-slate-500 font-normal">Sept '24 - Sept '25</span>
+    
+                <div class="mb-8 border-l-2 border-blue-500/20 pl-4">
+                    <h4 class="text-white font-bold mb-1 flex flex-col md:flex-row md:justify-between">
+                        Data Scientist @ Piramal Pharma Ltd.
+                        <span class="text-xs text-slate-500 font-normal font-mono">Sept '24 - Sept '25</span>
                     </h4>
+                    
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Python</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Azure Databricks</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Snowflake</span>
+                    </div>
+
                     <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
-                        [cite_start]<li>[cite: 23] Engineered and deployed 4+ scalable automation solutions using Azure Databricks, ADF, and Snowflake.</li>
-                        [cite_start]<li>[cite: 25] Developed an ML-based forecasting tool to predict stock-out and expiry risks 24 months in advance.</li>
-                        [cite_start]<li>[cite: 27] Automated pricing workflows, decreasing the turnaround time for key processes by 70%.</li>
+                        <li>
+                            <strong>Azure Automation:</strong> Engineered 4+ scalable solutions (Databricks, ADF, Snowflake) boosting pipeline efficiency by 60%.
+                        </li>
+                        <li>
+                            <strong>ML Forecasting:</strong> Built a stock-out prediction model (24-month horizon) using AWS & SAP data, enabling scenario-based planning.
+                        </li>
+                        <li>
+                            <strong>Process Optimization:</strong> Integrated chatbots and automated pricing workflows, reducing turnaround time by 70%.
+                        </li>
                     </ul>
                 </div>
-                
-                <div>
-                    <h4 class="text-white font-bold mb-2 flex justify-between">
-                        SDE Intern @ Amazon
-                        <span class="text-xs text-slate-500 font-normal">July '23 - Dec '23</span>
+
+                <div class="mb-8 border-l-2 border-blue-500/20 pl-4">
+                    <h4 class="text-white font-bold mb-1 flex flex-col md:flex-row md:justify-between">
+                        Data Science Intern @ Piramal Pharma Ltd.
+                        <span class="text-xs text-slate-500 font-normal font-mono">Jan '24 - Jun '24</span>
                     </h4>
+
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Python</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Azure</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">SQL</span>
+                    </div>
+
                     <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
-                        [cite_start]<li>[cite: 37] Developed and integrated ETL Fetcher and Validator tools, enhancing accuracy of ETL output validation.</li>
-                        [cite_start]<li>[cite: 38] Prevented data discrepancies, mitigating financial losses of up to $5 million.</li>
+                        <li>
+                            <strong>Strategic Dashboards:</strong> Developed Profitability & New Product Development reports, driving a 20% improvement in operational efficiency.
+                        </li>
+                        <li>
+                            <strong>Web Scraping:</strong> Built automated price scrapers & self-ship trackers, improving data accuracy by 90%.
+                        </li>
                     </ul>
                 </div>
+
+                <div class="border-l-2 border-blue-500/20 pl-4">
+                    <h4 class="text-white font-bold mb-1 flex flex-col md:flex-row md:justify-between">
+                        SDE Intern @ Amazon Development Center
+                        <span class="text-xs text-slate-500 font-normal font-mono">July '23 - Dec '23</span>
+                    </h4>
+
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Java</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">AWS</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">CI/CD</span>
+                    </div>
+
+                    <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
+                        <li>
+                            <strong>$5 Million Impact:</strong> Developed Extract, Tranform and Load Tools - Fetcher & Validator that prevented critical data discrepancies.
+                        </li>
+                        <li>
+                            <strong>DevOps:</strong> Implemented Continuous Integration/Continuous Development pipelines with functional tests, saving the team 15 hours per cycle.
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
 
@@ -293,7 +482,7 @@
     </div>
 
     <footer class="text-center text-slate-700 text-xs mt-12 mb-6 font-mono">
-        // DESIGNED FOR SHUBHAN MITAL
+        // DESIGNED BY SHUBHAN MITAL
     </footer>
 
     <script>
