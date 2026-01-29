@@ -46,8 +46,12 @@
             flex-direction: column;
         }
         .details,
-        .details * {
-            cursor: text;
+        .details *,
+        .edu-details,
+        .edu-details *,
+        .skill-list,
+        .skill-list * {
+            cursor: text !important;
             user-select: text;
         }
 
@@ -163,11 +167,11 @@
                         <h4 class="text-white font-bold text-sm tracking-wide py-1">UC San Diego</h4>
                         <div class="edu-details text-slate-400">
                             <div class="flex items-center gap-2 mb-2 mt-1">
-                                <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20 shadow-neon">3.53 GPA</span>
-                                <span class="text-[10px] text-slate-500 font-mono">2025-2027</span>
+                                <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20 shadow-neon">GPA: 3.53/4.00 </span>
+                                <span class="text-[10px] text-slate-500 font-mono">Sept'25-Jun'27</span>
                             </div>
                             <p class="text-xs text-glow font-medium mb-1">MS Electrical and Computer Engineering</p>
-                            <p class="text-xs text-glow font-medium mb-1">Specialization Machine Learning and Data Science</p>
+                            <p class="text-xs text-glow font-medium mb-1">Specialization in MLDS</p>
                         </div>
                     </div>
 
@@ -175,8 +179,8 @@
                         <h4 class="text-white font-bold text-sm tracking-wide py-1">BITS Pilani</h4>
                         <div class="edu-details text-slate-400">
                             <div class="flex items-center gap-2 mb-2 mt-1">
-                                <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20 shadow-neon">8.48 CGPA</span>
-                                <span class="text-[10px] text-slate-500 font-mono">2019-2024</span>
+                                <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20 shadow-neon">GPA: 8.48/10.00</span>
+                                <span class="text-[10px] text-slate-500 font-mono">Aug'19-Jul'24</span>
                             </div>
                             <p class="text-xs text-glow font-medium mb-1">MSc Mathematics</p>
                             <p class="text-xs text-glow font-medium mb-1">BE Electrical and Electronic Engineering</p>
@@ -528,7 +532,10 @@
 
 <script>
 function toggleCard(card, event) {
-    // Ignore clicks inside expandable content
+    // Ignore toggle if user is selecting text
+    if (window.getSelection().toString().length > 0) return;
+
+    // Or clicks inside interactive text areas
     if (
         event.target.closest('.details') ||
         event.target.closest('.skill-list') ||
@@ -537,6 +544,7 @@ function toggleCard(card, event) {
 
     card.classList.toggle('expanded');
 }
+
 </script>
 
 </body>
