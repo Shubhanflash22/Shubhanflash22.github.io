@@ -141,12 +141,15 @@
                     <span class="text-glow font-medium">Machine Learning and Data Science</span>. 
                     I work at the intersection of <span class="text-glow font-medium">AI</span>, 
                     <span class="text-glow font-medium">computer vision</span>, and 
-                    <span class="text-glow font-medium">energy systems</span>.
+                    <span class="text-glow font-medium">energy systems</span> — drawn less to using models off the shelf and more to the math that makes them work.
                 </p>
                 <p class="leading-relaxed">
-                    At <span class="text-white font-medium">Yuanyuan Lab (UCSD)</span>, I research optimization of mobile battery storage for electric construction vehicles by combining 
-                    <span class="text-glow font-medium">deep learning</span> and <span class="text-glow font-medium">energy modeling</span>. 
-                    Previously, I have built ML-powered forecasting systems at <span class="text-blue-400 font-medium">Amazon</span> and <span class="text-blue-400 font-medium">Piramal Pharma</span>.
+                    At <span class="text-white font-medium">Yuanyuan Lab (UCSD)</span>, I've built a multi-stage computer vision pipeline — 
+                    <span class="text-glow font-medium">YOLOv8</span>, <span class="text-glow font-medium">DeepSORT</span>, and a 
+                    <span class="text-glow font-medium">3D ResNet-18</span> classifier — that converts construction site footage into per-activity energy profiles, hitting 
+                    <span class="text-glow font-medium">88.81% recognition accuracy</span>. I'm now benchmarking deterministic vs. stochastic 
+                    <span class="text-glow font-medium">MPC</span> formulations to schedule mobile EV charging in real time. Previously, I've built ML-powered forecasting systems at 
+                    <span class="text-blue-400 font-medium">Amazon</span> and <span class="text-blue-400 font-medium">Piramal Pharma</span>.
                 </p>
                 <p class="leading-relaxed">
                     Outside of work, I enjoy analyzing Formula 1 strategies, football tactics, and cricket scorecards, going on hikes, and asking “why” a few too many times—both in coding and in life.
@@ -173,7 +176,7 @@
                         <h4 class="text-white font-bold text-sm tracking-wide py-1">UC San Diego</h4>
                         <div class="edu-details text-slate-400">
                             <div class="flex items-center gap-2 mb-2 mt-1">
-                                <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20 shadow-neon">GPA: 3.77/4.00 </span>
+                                <span class="text-[10px] font-bold bg-glow/10 text-glow px-2 py-0.5 rounded border border-glow/20 shadow-neon">GPA: 3.83/4.00 </span>
                                 <span class="text-[10px] text-slate-500 font-mono">Sept'25-Jun'27</span>
                             </div>
                             <p class="text-xs text-glow font-medium mb-1">MS Electrical and Computer Engineering</p>
@@ -252,6 +255,7 @@
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-glow"></span>PyTorch & TensorFlow</li>
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-glow"></span>Hugging Face & Keras</li>
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-glow"></span>Computer Vision (YOLO)</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-glow"></span>Multimodal AI (MediaPipe, Whisper)</li>
             </ul>
         </div>
 
@@ -276,6 +280,7 @@
             <ul class="skill-list space-y-2 text-sm text-slate-400">
                 <li class="flex items-center gap-3 pt-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>AWS (Lambda, S3)</li>
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Azure (Databricks, ADF)</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Snowflake</li>
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Docker & Git</li>
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Excel & PowerApps</li>
             </ul>
@@ -306,6 +311,8 @@
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Scikit-learn</li>
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Predictive Modeling</li>
                 <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>NLP</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Bayesian Inference</li>
+                <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Optimization (MILP/MPC)</li>
             </ul>
         </div>
 
@@ -356,9 +363,10 @@
             
             <div class="details text-sm text-slate-300">
                 <ul class="list-disc pl-4 space-y-3 marker:text-glow">
-                    <li> Working on optimization of mobile battery storage for electric construction vehicle charging and grid resilience.</li>
-                    <li> Analyzing construction vehicle videos with minute-by-minute SOC data and designing a computer vision model to accurately map vehicle activity to energy consumption.</li>
-                    <li> Developing AI-based optimization strategies that use the activity-to-SOC mapping to schedule battery charging/discharging.</li>
+                    <li>Built a multi-stage CV pipeline chaining <strong>YOLOv8</strong> detection, <strong>DeepSORT</strong> multi-object tracking, a physics-constrained finite state machine, and a transfer-learned <strong>3D ResNet-18</strong> spatiotemporal classifier — with automated CVAT annotation — to convert 34+ hours of raw construction site footage into per-subactivity energy profiles for mobile electric excavator charging dispatch.</li>
+                    <li>Achieved <strong>88.81% recognition accuracy</strong> across 5 activity classes, surpassing a prior 3-class benchmark of 86.7%; applied Bayesian regression for hidden-state power estimation and built automated tooling for class-balanced clip extraction.</li>
+                    <li>Currently benchmarking deterministic certainty-equivalent <strong>MPC</strong> against scenario-based stochastic MPC over a 24-hour dispatch window to produce mobile charging schedules that curb battery depletion, demand charges, and grid carbon impact.</li>
+                    <li>Presented this work as a poster at the <a href="https://jacobsschool.ucsd.edu/research-expo/poster-instructions" target="_blank" onclick="event.stopPropagation()" class="text-glow underline decoration-dotted hover:text-white">Jacobs School of Engineering Research Expo</a>.</li>
                 </ul>
             </div>
         </div>
@@ -389,17 +397,21 @@
                         <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Python</span>
                         <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Azure Databricks</span>
                         <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Snowflake</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-300 font-mono">Qlik Sense</span>
                     </div>
 
                     <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
                         <li>
-                            <strong>Azure Automation:</strong> Engineered 4+ scalable solutions (Databricks, ADF, Snowflake) boosting pipeline efficiency by 60%.
+                            <strong>ML Lifecycle Ownership:</strong> Owned end-to-end ML lifecycle (feature engineering, model selection, cross-validation, deployment) for a forecasting model predicting inventory stock-out/expiry risk 24 months ahead.
                         </li>
                         <li>
-                            <strong>ML Forecasting:</strong> Built a stock-out prediction model (24-month horizon) using AWS & SAP data, enabling scenario-based planning.
+                            <strong>Data Pipeline Engineering:</strong> Engineered 4+ scalable ML data pipelines (Azure Databricks, ADF, Snowflake) boosting processing efficiency by 60%.
                         </li>
                         <li>
-                            <strong>Process Optimization:</strong> Integrated chatbots and automated pricing workflows, reducing turnaround time by 70%.
+                            <strong>Decision Intelligence:</strong> Translated ML pipeline outputs into Qlik Sense dashboards, driving data-informed decisions across 20+ teams.
+                        </li>
+                        <li>
+                            <strong>NLP Automation:</strong> Automated pricing workflows and deployed NLP-driven chatbots, reducing turnaround time by 70%.
                         </li>
                     </ul>
                 </div>
@@ -418,10 +430,10 @@
 
                     <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
                         <li>
-                            <strong>Strategic Dashboards:</strong> Developed Profitability & New Product Development reports, driving a 20% improvement in operational efficiency.
+                            <strong>Analytics Delivery:</strong> Led full-cycle delivery of 3 analytics and reporting solutions, driving a 20% improvement in operational efficiency.
                         </li>
                         <li>
-                            <strong>Web Scraping:</strong> Built automated price scrapers & self-ship trackers, improving data accuracy by 90%.
+                            <strong>Data Pipeline Automation:</strong> Streamlined price scrapers, self-ship trackers, and offtake reports, improving operational efficiency by 50% and data accuracy by 90%.
                         </li>
                     </ul>
                 </div>
@@ -440,10 +452,10 @@
 
                     <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
                         <li>
-                            <strong>$5 Million Impact:</strong> Developed Extract, Transform and Load Tools - Fetcher & Validator that prevented critical data discrepancies.
+                            <strong>$5M Data Validation:</strong> Developed and integrated automated data validation and pipeline auditing tools into production UIs, detecting discrepancies across 5+ downstream pipelines and preventing financial losses of up to $5 million.
                         </li>
                         <li>
-                            <strong>DevOps:</strong> Implemented Continuous Integration/Continuous Development pipelines with functional tests, saving the team 15 hours per cycle.
+                            <strong>DevOps:</strong> Implemented CI/CD for 2 critical data pipelines with comprehensive functional and integration test coverage, cutting release validation cycle time by 15 hours per sprint.
                         </li>
                     </ul>
                 </div>
@@ -460,7 +472,7 @@
             </div>
             <div>
                 <h2 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Featured Projects</h2>
-                <p class="text-xs text-emerald-400 font-mono mt-1">Robotics • Deep Learning • Data Science</p>
+                <p class="text-xs text-emerald-400 font-mono mt-1">Deep Learning • Optimization • Multimodal AI</p>
             </div>
         </div>
         <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
@@ -472,18 +484,18 @@
             
             <div class="bg-bg/50 p-5 rounded-xl border border-border hover:border-emerald-500/50 transition-colors group/card">
                 <div class="flex justify-between items-start mb-3">
-                    <h4 class="text-white font-bold text-lg">Autonomous Roadside Mechanic</h4>
-                    <a href="https://github.com/Shubhanflash22/ECE-148-Intro-to-Autonomous-Vehicles" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-emerald-400 transition-colors">
+                    <h4 class="text-white font-bold text-lg">StayTuned: Multimodal Attention Detection</h4>
+                    <a href="https://github.com/Shubhanflash22" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-emerald-400 transition-colors">
                         <span class="material-icons-round text-xl">open_in_new</span>
                     </a>
                 </div>
                 
                 <p class="text-[11px] font-mono text-emerald-400 mb-3 uppercase tracking-wide">
-                    ROS2 • Jetson Nano • YOLO • LiDAR
+                    MediaPipe • TensorFlow • PyTorch • Whisper • ESP32
                 </p>
                 
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Engineered a distributed multi-agent robotic system to autonomously identify and assist disabled vehicles on the road. A <strong>Jetson Nano</strong> acts as an aerial scout, running <strong>OpenCV</strong> and FFT-based signal processing to detect hazard lights in real time and dispatch a ground robot to the scene. The ground robot uses <strong>sensor fusion</strong> across an OAK-D stereo camera and LiDAR, guided by a custom-trained <strong>YOLO</strong> model, to navigate live traffic, avoid obstacles, and park precisely behind the target vehicle-achieving <strong>90% detection accuracy</strong>. Path planning and inter-agent communication are handled entirely over <strong>ROS2</strong>, with all inference running on-device at the edge.
+                    Engineered a real-time facial attention classifier using a <strong>10-feature geometric BiLSTM</strong> (EAR, MAR, 3D PnP head pose), achieving a <strong>macro-F1 of 0.61</strong> on the DAiSEE benchmark across 4 engagement-level classes. Fused facial predictions with a <strong>Whisper-based ~75-feature audio model</strong> and deployed live multimodal inference to an <strong>ESP32 OLED display</strong> for real-time hardware-in-the-loop classroom attention monitoring.
                 </p>
             </div>
 
@@ -532,6 +544,65 @@
         </div>
 
     </div> </div>
+
+    <div class="col-span-1 md:col-span-4 bento-card interactive group" onclick="toggleCard(this, event)">
+        <div class="flex justify-between items-start w-full">
+            <div class="flex items-center gap-4">
+                <div class="p-3 rounded-lg bg-amber-500/10 text-amber-400">
+                    <span class="material-icons-round">bolt</span>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">Hackathons</h2>
+                    <p class="text-xs text-amber-400 font-mono mt-1">Building fast, under pressure, with strangers</p>
+                </div>
+            </div>
+            <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
+        </div>
+
+        <div class="details">
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+
+                <div class="bg-bg/50 p-5 rounded-xl border border-border hover:border-amber-500/50 transition-colors group/card">
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="text-white font-bold text-lg">SAFE</h4>
+                        <a href="https://github.com/Shubhanflash22/SAFE" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-amber-400 transition-colors">
+                            <span class="material-icons-round text-xl">open_in_new</span>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-slate-600/50 bg-slate-700/30 text-slate-300 font-mono">Participant</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-slate-600/50 bg-slate-700/30 text-slate-300 font-mono">Reboot the Earth Hackathon</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Built <strong>SAFE</strong> as part of the Reboot the Earth Hackathon, a climate-focused build sprint tackling real-world sustainability problems under tight time constraints.
+                    </p>
+                </div>
+
+                <div class="bg-bg/50 p-5 rounded-xl border border-amber-500/30 hover:border-amber-500/60 transition-colors group/card relative">
+                    <div class="absolute top-0 right-0">
+                        <span class="flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-xl bg-amber-500/20 text-amber-300 border-l border-b border-amber-500/30">
+                            <span class="material-icons-round text-xs">emoji_events</span>
+                            Winner
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-start mb-3 pr-16">
+                        <h4 class="text-white font-bold text-lg">BrailleAI</h4>
+                        <a href="https://devpost.com/software/brailleai-a-two-way-voice-for-the-deafblind" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-amber-400 transition-colors">
+                            <span class="material-icons-round text-xl">open_in_new</span>
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-300 font-mono">Best Use of Orkes</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded border border-slate-600/50 bg-slate-700/30 text-slate-300 font-mono">UC Berkeley AI Hackathon</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        A two-way voice interface for the deafblind community, letting users communicate through braille input paired with AI-generated speech and text output. Won the <strong>Best Use of Orkes</strong> track at the UC Berkeley AI Hackathon.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <footer class="text-center text-slate-700 text-xs mt-12 mb-6 font-mono">
         // DESIGNED BY SHUBHAN MITAL
