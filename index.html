@@ -143,14 +143,29 @@
                     <span class="text-glow font-medium">computer vision</span>, and 
                     <span class="text-glow font-medium">energy systems</span> — drawn less to using models off the shelf and more to the math that makes them work.
                 </p>
-                <p class="leading-relaxed">
-                    At <span class="text-white font-medium">Yuanyuan Lab (UCSD)</span>, I've built a multi-stage computer vision pipeline — 
-                    <span class="text-glow font-medium">YOLOv8</span>, <span class="text-glow font-medium">DeepSORT</span>, and a 
-                    <span class="text-glow font-medium">3D ResNet-18</span> classifier — that converts construction site footage into per-activity energy profiles, hitting 
-                    <span class="text-glow font-medium">88.81% recognition accuracy</span>. I'm now benchmarking deterministic vs. stochastic 
-                    <span class="text-glow font-medium">MPC</span> formulations to schedule mobile EV charging in real time. Previously, I've built ML-powered forecasting systems at 
-                    <span class="text-blue-400 font-medium">Amazon</span> and <span class="text-blue-400 font-medium">Piramal Pharma</span>.
+                <p class="leading-relaxed text-base">
+                    At <span class="text-white font-medium">Yuanyuan Lab (UCSD)</span>, I research energy-aware scheduling for electric construction vehicles — more in the Research section below.
                 </p>
+
+                <div class="grid sm:grid-cols-2 gap-6 pt-2">
+                    <div>
+                        <h5 class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-3">Experience</h5>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li class="flex gap-2"><span class="text-blue-400">•</span><span><span class="text-white font-medium">Data Scientist, Piramal Pharma</span> — built ML forecasting pipelines, cutting processing time by 60%.</span></li>
+                            <li class="flex gap-2"><span class="text-blue-400">•</span><span><span class="text-white font-medium">Data Science Intern, Piramal Pharma</span> — automated reporting pipelines, lifting data accuracy to 90%.</span></li>
+                            <li class="flex gap-2"><span class="text-blue-400">•</span><span><span class="text-white font-medium">SDE Intern, Amazon</span> — built data-validation tooling that helped prevent up to $5M in losses.</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-3">Projects</h5>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li class="flex gap-2"><span class="text-emerald-400">•</span><span><span class="text-white font-medium">SolarInvestAgent</span> — agentic AI + MILP optimizer for solar/battery sizing.</span></li>
+                            <li class="flex gap-2"><span class="text-emerald-400">•</span><span><span class="text-white font-medium">StayTuned</span> — multimodal vision + audio attention detection for classrooms.</span></li>
+                            <li class="flex gap-2"><span class="text-emerald-400">•</span><span><span class="text-white font-medium">Renewable Storage Optimization</span> — deep learning models cutting VRFB power-loss error.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
                 <p class="leading-relaxed">
                     Outside of work, I enjoy analyzing Formula 1 strategies, football tactics, and cricket scorecards, going on hikes, and asking “why” a few too many times—both in coding and in life.
                 </p>
@@ -353,12 +368,18 @@
                         <span class="material-icons-round">science</span>
                     </div>
                     <div>
-                        <h2 class="text-lg font-bold text-white group-hover:text-glow transition-colors">Yuanyuan Lab Research</h2>
+                        <h2 class="text-lg font-bold text-white group-hover:text-glow transition-colors">Yuanyuan Lab Research <a href="https://yyshi.eng.ucsd.edu" target="_blank" onclick="event.stopPropagation()" class="text-glow text-sm font-normal underline decoration-dotted hover:text-white">[Lab Website]</a></h2>
                         <p class="text-xs text-primary font-mono mt-1">Graduate Researcher • Smart Grids & Machine Learning</p>
                         <p class="text-xs text-primary font-mono mt-1">Oct '25 - Ongoing</p>
                     </div>
                 </div>
-                <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
+                <div class="flex items-center gap-3">
+                    <a href="https://yyshi.eng.ucsd.edu" target="_blank" onclick="event.stopPropagation()" class="flex items-center gap-1 text-xs font-bold text-glow hover:text-white transition-colors border-b border-dashed border-glow/50 hover:border-white pb-0.5">
+                        Lab Website
+                        <span class="material-icons-round text-sm">open_in_new</span>
+                    </a>
+                    <span class="material-icons-round text-slate-600 icon-rotate text-2xl">expand_more</span>
+                </div>
             </div>
             
             <div class="details text-sm text-slate-300">
@@ -495,7 +516,7 @@
                 </p>
                 
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Engineered a real-time facial attention classifier using a <strong>10-feature geometric BiLSTM</strong> (EAR, MAR, 3D PnP head pose), achieving a <strong>macro-F1 of 0.61</strong> on the DAiSEE benchmark across 4 engagement-level classes. Fused facial predictions with a <strong>Whisper-based ~75-feature audio model</strong> and deployed live multimodal inference to an <strong>ESP32 OLED display</strong> for real-time hardware-in-the-loop classroom attention monitoring.
+                    Engineered a real-time facial attention classifier using a <strong>10-feature geometric BiLSTM</strong> (EAR, MAR, 3D PnP head pose), achieving a <strong>macro-F1 of 0.61</strong> on the DAiSEE benchmark across 4 engagement-level classes. Fused facial predictions with a <strong>Whisper-based ~75-feature audio model</strong> for richer context, then deployed live multimodal inference to an <strong>ESP32 OLED display</strong>, enabling real-time hardware-in-the-loop classroom attention monitoring with no cloud dependency.
                 </p>
             </div>
 
@@ -512,7 +533,7 @@
                 </p>
                 
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Developed a deep learning framework in collaboration with <strong>Dr. Ankur Bhattacharjee</strong> to predict and minimize power losses in Vanadium Redox Flow Batteries (VRFBs)-a key technology for large-scale renewable energy storage. Modeled the complex non-linear relationships between electrolyte flow rates, state-of-charge, and power loss using <strong>ANN</strong>, <strong>LSTM</strong>, and <strong>RNN</strong> architectures in <strong>PyTorch</strong>. The best models achieved a <strong>40–70% improvement</strong> in prediction accuracy over physics-based baselines, enabling more precise flow rate control, reduced energy waste, and more cost-efficient VRFB operation at scale.
+                    Developed a deep learning framework with <strong>Dr. Ankur Bhattacharjee</strong> to predict and minimize power losses in Vanadium Redox Flow Batteries (VRFBs), a key technology for large-scale renewable energy storage. Modeled the non-linear relationships between electrolyte flow rates, state-of-charge, and power loss using <strong>ANN</strong>, <strong>LSTM</strong>, and <strong>RNN</strong> architectures in <strong>PyTorch</strong>. The best models achieved a <strong>40–70% improvement</strong> in prediction accuracy over physics-based baselines, enabling more precise flow control and cost-efficient VRFB operation.
                 </p>
             </div>
 
