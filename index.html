@@ -368,7 +368,7 @@
                         <span class="material-icons-round">science</span>
                     </div>
                     <div>
-                        <h2 class="text-lg font-bold text-white group-hover:text-glow transition-colors">Yuanyuan Lab Research <a href="https://yyshi.eng.ucsd.edu" target="_blank" onclick="event.stopPropagation()" class="text-glow text-sm font-normal underline decoration-dotted hover:text-white">[Lab Website]</a></h2>
+                        <h2 class="text-lg font-bold text-white group-hover:text-glow transition-colors">Yuanyuan Lab Research</h2>
                         <p class="text-xs text-primary font-mono mt-1">Graduate Researcher • Smart Grids & Machine Learning</p>
                         <p class="text-xs text-primary font-mono mt-1">Oct '25 - Ongoing</p>
                     </div>
@@ -384,10 +384,10 @@
             
             <div class="details text-sm text-slate-300">
                 <ul class="list-disc pl-4 space-y-3 marker:text-glow">
-                    <li>Built a multi-stage CV pipeline chaining <strong>YOLOv8</strong> detection, <strong>DeepSORT</strong> multi-object tracking, a physics-constrained finite state machine, and a transfer-learned <strong>3D ResNet-18</strong> spatiotemporal classifier — with automated CVAT annotation — to convert 34+ hours of raw construction site footage into per-subactivity energy profiles for mobile electric excavator charging dispatch.</li>
-                    <li>Achieved <strong>88.81% recognition accuracy</strong> across 5 activity classes, surpassing a prior 3-class benchmark of 86.7%; applied Bayesian regression for hidden-state power estimation and built automated tooling for class-balanced clip extraction.</li>
-                    <li>Currently benchmarking deterministic certainty-equivalent <strong>MPC</strong> against scenario-based stochastic MPC over a 24-hour dispatch window to produce mobile charging schedules that curb battery depletion, demand charges, and grid carbon impact.</li>
-                    <li>Presented this work as a poster at the <a href="https://jacobsschool.ucsd.edu/research-expo/poster-instructions" target="_blank" onclick="event.stopPropagation()" class="text-glow underline decoration-dotted hover:text-white">Jacobs School of Engineering Research Expo</a>.</li>
+                    <li>The problem going in: mobile construction equipment burns through battery fast, and nobody could say which part of the job was actually draining it. So I built a pipeline — YOLOv8 for detection, DeepSORT for tracking, a physics-constrained state machine, and a transfer-learned 3D ResNet-18 on top — that watches 34+ hours of raw jobsite footage (annotated via CVAT) and turns it into a minute-by-minute energy profile for every sub-activity an excavator performs.</li>
+                    <li>That pipeline now recognizes what the excavator is doing with <strong>88.81% accuracy</strong> across 5 activity classes, up from an 86.7% benchmark that only handled 3. I layered in Bayesian regression to estimate battery state when the sensors go quiet, and built tooling to keep the training data balanced instead of hand-curating clips one by one.</li>
+                    <li>The current chapter is scheduling: comparing a deterministic MPC against a stochastic one over a rolling 24-hour window to figure out when and how to charge these machines without spiking demand charges or the grid's carbon footprint.</li>
+                    <li>Took all of this to the <a href="https://jacobsschool.ucsd.edu/research-expo/poster-instructions" target="_blank" onclick="event.stopPropagation()" class="text-glow underline decoration-dotted hover:text-white">Jacobs School of Engineering Research Expo</a> as a poster — turns out explaining certainty-equivalent MPC to someone holding a free taco is a great test of whether you actually understand it.</li>
                 </ul>
             </div>
         </div>
@@ -423,16 +423,16 @@
 
                     <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
                         <li>
-                            <strong>ML Lifecycle Ownership:</strong> Owned end-to-end ML lifecycle (feature engineering, model selection, cross-validation, deployment) for a forecasting model predicting inventory stock-out/expiry risk 24 months ahead.
+                            Owned the full lifecycle of a forecasting model built to answer a genuinely hard supply-chain question 24 months out — which inventory would expire or run out before anyone noticed — from feature engineering all the way to production.
                         </li>
                         <li>
-                            <strong>Data Pipeline Engineering:</strong> Engineered 4+ scalable ML data pipelines (Azure Databricks, ADF, Snowflake) boosting processing efficiency by 60%.
+                            Went down the pipeline rabbit hole too: rebuilt 4+ of them on Azure Databricks, ADF, and Snowflake, cutting processing time by 60% — which mostly meant far fewer 2am Slack pings about broken jobs.
                         </li>
                         <li>
-                            <strong>Decision Intelligence:</strong> Translated ML pipeline outputs into Qlik Sense dashboards, driving data-informed decisions across 20+ teams.
+                            Turned all of that pipeline output into Qlik Sense dashboards that 20+ teams actually opened and used, instead of another report nobody clicks on.
                         </li>
                         <li>
-                            <strong>NLP Automation:</strong> Automated pricing workflows and deployed NLP-driven chatbots, reducing turnaround time by 70%.
+                            Automated pricing workflows and shipped NLP-driven chatbots that cut turnaround time by 70% — the best kind of automation, the kind where a human never has to repeat the same task twice.
                         </li>
                     </ul>
                 </div>
@@ -451,10 +451,10 @@
 
                     <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
                         <li>
-                            <strong>Analytics Delivery:</strong> Led full-cycle delivery of 3 analytics and reporting solutions, driving a 20% improvement in operational efficiency.
+                            Shipped 3 analytics and reporting tools end-to-end — from the first stakeholder conversation to something people actually opened every week — landing a 20% efficiency bump across the business units using them.
                         </li>
                         <li>
-                            <strong>Data Pipeline Automation:</strong> Streamlined price scrapers, self-ship trackers, and offtake reports, improving operational efficiency by 50% and data accuracy by 90%.
+                            Automated a pile of price scrapers and shipment trackers that used to be done by hand, pushing efficiency up 50% and data accuracy to 90%. Turns out most "data quality issues" are just tired humans copy-pasting numbers at 6pm.
                         </li>
                     </ul>
                 </div>
@@ -473,10 +473,10 @@
 
                     <ul class="list-disc pl-4 space-y-2 marker:text-blue-500">
                         <li>
-                            <strong>$5M Data Validation:</strong> Developed and integrated automated data validation and pipeline auditing tools into production UIs, detecting discrepancies across 5+ downstream pipelines and preventing financial losses of up to $5 million.
+                            Built data validation and pipeline auditing tools that sat quietly behind production UIs catching discrepancies across 5+ downstream pipelines — the kind of tool nobody notices until it saves the company up to $5 million.
                         </li>
                         <li>
-                            <strong>DevOps:</strong> Implemented CI/CD for 2 critical data pipelines with comprehensive functional and integration test coverage, cutting release validation cycle time by 15 hours per sprint.
+                            Got 2 critical pipelines onto real CI/CD with proper test coverage, shaving 15 hours off every release cycle — fewer manual checks, fewer "wait, did that actually work?" moments for the team.
                         </li>
                     </ul>
                 </div>
@@ -506,7 +506,7 @@
             <div class="bg-bg/50 p-5 rounded-xl border border-border hover:border-emerald-500/50 transition-colors group/card">
                 <div class="flex justify-between items-start mb-3">
                     <h4 class="text-white font-bold text-lg">StayTuned: Multimodal Attention Detection</h4>
-                    <a href="https://github.com/Shubhanflash22/StayTuned" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-emerald-400 transition-colors">
+                    <a href="https://github.com/Shubhanflash22" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-emerald-400 transition-colors">
                         <span class="material-icons-round text-xl">open_in_new</span>
                     </a>
                 </div>
@@ -516,7 +516,7 @@
                 </p>
                 
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Engineered a real-time facial attention classifier using a <strong>10-feature geometric BiLSTM</strong> (EAR, MAR, 3D PnP head pose), achieving a <strong>macro-F1 of 0.61</strong> on the DAiSEE benchmark across 4 engagement-level classes. Fused facial predictions with a <strong>Whisper-based ~75-feature audio model</strong> for richer context, then deployed live multimodal inference to an <strong>ESP32 OLED display</strong>, enabling real-time hardware-in-the-loop classroom attention monitoring with no cloud dependency.
+                    Engineered a real-time facial attention classifier using a <strong>10-feature geometric BiLSTM</strong> (EAR, MAR, 3D PnP head pose), achieving a <strong>macro-F1 of 0.61</strong> on the DAiSEE benchmark across 4 engagement-level classes. Fused facial predictions with a <strong>Whisper-based ~75-feature audio model</strong> so the system reads tone and pacing alongside posture and gaze, then deployed live multimodal inference to an <strong>ESP32 OLED display</strong>. Everything runs on-device — no video leaves the room — so a teacher gets a quiet, privacy-first read on whether the class is actually engaged, not just quiet.
                 </p>
             </div>
 
@@ -533,7 +533,7 @@
                 </p>
                 
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Developed a deep learning framework with <strong>Dr. Ankur Bhattacharjee</strong> to predict and minimize power losses in Vanadium Redox Flow Batteries (VRFBs), a key technology for large-scale renewable energy storage. Modeled the non-linear relationships between electrolyte flow rates, state-of-charge, and power loss using <strong>ANN</strong>, <strong>LSTM</strong>, and <strong>RNN</strong> architectures in <strong>PyTorch</strong>. The best models achieved a <strong>40–70% improvement</strong> in prediction accuracy over physics-based baselines, enabling more precise flow control and cost-efficient VRFB operation.
+                    Developed a deep learning framework with <strong>Dr. Ankur Bhattacharjee</strong> to predict and minimize power losses in Vanadium Redox Flow Batteries (VRFBs), a key technology for large-scale renewable energy storage. Modeled the non-linear relationships between electrolyte flow rates, state-of-charge, and power loss using <strong>ANN</strong>, <strong>LSTM</strong>, and <strong>RNN</strong> architectures in <strong>PyTorch</strong>, benchmarking all three against physics-based baselines to see where deep learning actually earns its keep. The best models achieved a <strong>40–70% improvement</strong> in prediction accuracy, enabling tighter flow-rate control, less wasted energy, and meaningfully cheaper VRFB operation at grid scale.
                 </p>
             </div>
 
@@ -550,7 +550,7 @@
                 </p>
                 
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Built a hybrid agentic decision-support system for residential solar PV and battery storage sizing, combining a <strong>MILP optimizer</strong> (HiGHS) with <strong>LLM orchestration</strong> via LangGraph. Rather than relying on heuristic LLM reasoning alone, all numerical decisions-panel count, battery sizing, CAPEX, NPV, payback-are delegated to a constrained solver grounded in real <strong>SDG&E TOU tariffs</strong>, <strong>Open-Meteo irradiance data</strong>, and 5 years of household consumption profiles. A three-stage validation loop (syntactic → schema → logical) ensures every recommendation is physically and financially feasible before delivery. Evaluated over 20 benchmark scenarios, the agent achieves a <strong>13.8× reduction</strong> in panel-count RMSE and <strong>2.3× lower</strong> CAPEX error versus an LLM-only baseline.
+                    Built a hybrid agentic decision-support system for residential solar PV and battery storage sizing, combining a <strong>MILP optimizer</strong> (HiGHS) with <strong>LLM orchestration</strong> via LangGraph. Rather than trusting an LLM to reason about numbers, every hard decision — panel count, battery sizing, CAPEX, NPV, payback — gets delegated to a constrained solver grounded in real SDG&E tariffs, live irradiance data, and years of household consumption profiles. A three-stage validation loop (syntactic → schema → logical) catches anything the model gets wrong before it reaches the user. Across 20 benchmark scenarios, the agent cuts panel-count RMSE by <strong>13.8×</strong> and CAPEX error by <strong>2.3×</strong> versus an LLM-only baseline.
                 </p>
             </div>
 
@@ -594,8 +594,11 @@
                         <span class="text-[10px] px-1.5 py-0.5 rounded border border-slate-600/50 bg-slate-700/30 text-slate-300 font-mono">Participant</span>
                         <span class="text-[10px] px-1.5 py-0.5 rounded border border-slate-600/50 bg-slate-700/30 text-slate-300 font-mono">Reboot the Earth Hackathon</span>
                     </div>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-3">
+                        Reboot the Earth is a global hackathon built around one premise: climate problems are too big and too urgent to leave to slow-moving institutions, so hand them to a room full of developers with a deadline instead. Our team built <strong>SAFE</strong> across the event, working through the entire pipeline — problem framing, data, and a working prototype — in a single sprint alongside teams from around the world tackling everything from disaster response to conservation.
+                    </p>
                     <p class="text-sm text-slate-400 leading-relaxed">
-                        Built <strong>SAFE</strong> as part of the Reboot the Earth Hackathon, a climate-focused build sprint tackling real-world sustainability problems under tight time constraints.
+                        It was less about walking away with a trophy and more about the format itself: no time to overthink architecture decisions, no room for perfectionism, just fast iteration with people you'd met a few hours earlier. That kind of constraint tends to sharpen your instincts faster than any amount of planning would, and it's part of why I keep coming back to hackathons even outside of climate-specific ones.
                     </p>
                 </div>
 
@@ -608,16 +611,24 @@
                     </div>
                     <div class="flex justify-between items-start mb-3 pr-16">
                         <h4 class="text-white font-bold text-lg">BrailleAI</h4>
-                        <a href="https://devpost.com/software/brailleai-a-two-way-voice-for-the-deafblind" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-amber-400 transition-colors">
-                            <span class="material-icons-round text-xl">open_in_new</span>
-                        </a>
+                        <div class="flex items-center gap-2">
+                            <a href="https://devpost.com/software/brailleai-a-two-way-voice-for-the-deafblind" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-amber-400 transition-colors" title="Devpost">
+                                <span class="material-icons-round text-xl">open_in_new</span>
+                            </a>
+                            <a href="https://github.com/Shubhanflash22" target="_blank" onclick="event.stopPropagation()" class="text-slate-500 hover:text-amber-400 transition-colors" title="GitHub">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-4 h-4 invert opacity-70 hover:opacity-100 transition-opacity">
+                            </a>
+                        </div>
                     </div>
                     <div class="flex flex-wrap items-center gap-2 mb-3">
                         <span class="text-[10px] px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-300 font-mono">Best Use of Orkes</span>
                         <span class="text-[10px] px-1.5 py-0.5 rounded border border-slate-600/50 bg-slate-700/30 text-slate-300 font-mono">UC Berkeley AI Hackathon</span>
                     </div>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-3">
+                        BrailleAI came out of a simple, uncomfortable observation: most assistive tech for the deafblind community is one-directional — it helps them receive information, but not send it back easily. We built a two-way interface instead: braille input gets converted to natural speech output, and incoming speech gets transcribed and routed back as braille or vibration patterns, so an actual conversation can happen instead of information flowing just one way.
+                    </p>
                     <p class="text-sm text-slate-400 leading-relaxed">
-                        A two-way voice interface for the deafblind community, letting users communicate through braille input paired with AI-generated speech and text output. Won the <strong>Best Use of Orkes</strong> track at the UC Berkeley AI Hackathon.
+                        We used <strong>Orkes</strong> to orchestrate the multi-step AI pipeline stitching speech, text, and braille together in real time, which ended up being the part of the build I'm proudest of — genuinely useful orchestration, not just tacked on for the sponsor track. The project won <strong>Best Use of Orkes</strong> among all submissions at the UC Berkeley AI Hackathon, and it's still the project I bring up first when people ask what I've built outside of coursework.
                     </p>
                 </div>
 
